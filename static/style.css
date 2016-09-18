@@ -1,0 +1,16 @@
+body{
+	background-color: #99ccff;
+}
+
+.header{
+	margin-top:0px;
+	background-color: #00004d;
+}
+.container{
+	margin-top : 100px;
+	margin-right: 100px;
+	margin-left: 100px;
+	margin-bottom: 100px;
+	background-color: white;
+
+}
