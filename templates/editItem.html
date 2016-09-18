@@ -1,0 +1,33 @@
+{% extends "basicLayout.html" %}
+{% block body %}
+
+<div class="row">
+	
+	<h1>Edit Item {{item_name}} </h1>
+	<form action="{{url_for('EditItem',item_name = item_name)}}" method='post'>
+		<p>Name</p>
+		<input type='text' name='name' value='{{item.name}}'>
+		<br/><br/>
+		<p>Description</p>
+		<input type='text' name='description' value='{{item.description}}'>
+		<br/><br/>
+		<p>Category</p>
+		<select name="category" width="300px">
+			{% for c in category_list %}
+					<option value="{{ c.name }}" SELECTED>{{ c.name }}</option>
+			{% endfor %}
+		</select>
+		<br/><br/>
+		<p>Picture Link</p>
+		<input type='text' name='picture' value='{{item.picture}}'>
+		<br/><br/>
+		<input type='submit' value='Submit'>
+		<a href="{{url_for('ListAllCategories')}}">Cancel</a>
+		</form>
+	
+	
+
+</div>
+
+{% endblock %}
+

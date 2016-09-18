@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+		<link rel= "stylesheet" href="{{url_for('static', filename='bootstrap.css')}}">
+		<link rel = "stylesheet" href = "{{url_for('static', filename='bootstrap.min.css')}}">
+		
+	</head>
+	<body>
+		</div>
+		<div class="container">
+			<div class="row top-menu">
+				<div class="col-md-6">
+					<h1>Catalog App</h1>
+				</div>
+				<div class="col-md-6 text-right" style="margin-top:20px;">
+
+					{% if 'username' not in session %}
+
+						<div class="button-link">
+							<a href="{{url_for('ShowLogin')}}">Login</a>
+						</div>
+					{% else %}
+					
+						<div class="button-link">
+							<a href="{{url_for('gdisconnect')}}">Logout</a>
+						</div>
+					{% endif %}
+
+
+				</div>
+			</div>
+
+			<div class="Flash">
+
+				{% with messages = get_flashed_messages() %}
+						{% if messages %}
+							{% with message = messages[-1] %}
+							    <ul>
+									<li>{{message}}</li>
+								</ul>
+
+							{% endwith %}
+							
+						{% endif %}
+				{% endwith %}
+			</div>
+			
+					
+
+			{% block body %}
+			{% endblock %}
+			
+		</div>
+			
+	</body>
+</html>

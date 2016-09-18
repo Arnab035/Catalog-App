@@ -1,0 +1,15 @@
+{% extends "basicLayout.html" %}
+{% block body %}
+
+<div class="row">
+	<h1>Delete Item</h1>
+	<form action="{{url_for('DeleteItem',item_name= item_name)}}" method='post'>
+		<p>Are you sure you want to delete {{item_name}}?</p>
+		<br/><br/>
+		<input type='submit' value='Delete'>
+		<a href="{{url_for('ListAllCategories')}}">Cancel</a>
+	</form>
+
+</div>
+
+{% endblock %}

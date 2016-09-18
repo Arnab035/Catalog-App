@@ -1,0 +1,28 @@
+{% extends "basicLayout.html" %}
+{% block body %}
+	
+		
+			<div class="row">
+				<div class="col-md-4">
+					<h1>Categories</h1>
+					<br/><br/>
+					{% for category in categories %}
+					<a href="{{url_for('ListItems',category_name=category.name)}}">{{category.name}}</a>
+		
+					<br/>
+					{% endfor %}
+				</div>
+				<div class="col-md-6">
+					<h1>{{category_name}} Items ( {{number}} {% if (number==1) %} Item {% else %} Items {% endif %} )</h1>
+					<br/><br/>
+					{% for item in items %}
+					<a href="{{url_for('ItemDescription',category_name=category_name, item_name= item.name)}}">{{item.name}}</a>
+					<br/>
+					{% endfor %}
+				
+
+				</div>
+			</div>
+		</div>
+{% endblock %}
+	

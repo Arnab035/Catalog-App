@@ -1,0 +1,18 @@
+{% extends "basicLayout.html" %}
+{% block body %}
+
+<div class= "row">
+	<div class="col-md-8">
+		<h1>{{item.name}}</h1>
+		<br/><br/>
+		<p>{{itemdescription}}</p>
+		<br/><br/>
+		<img src="{{item.picture}}" alt="image of {{item.name}} here" height="200px" width="200px"></img>
+		<br/><br/>
+		{% if 'username' in session %}
+			<a href="{{url_for('EditItem', item_name=item.name)}}">Edit</a> | <a href="{{url_for('DeleteItem',item_name= item.name)}}">Delete</a>
+		{% endif %}
+	</div>
+<div>
+
+{% endblock %}
